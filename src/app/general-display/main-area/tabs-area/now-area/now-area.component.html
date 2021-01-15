@@ -1,0 +1,31 @@
+<div class="row">
+    <div class="container">
+        <table class="table">
+            <tr>
+                <td>Temperature</td>
+                <td>{{ currentWeather.temp_C }} °C / {{ currentWeather.temp_F }} F</td>
+                <td><img [src]="currentWeather.weatherIconUrl[0].value" [alt]="currentWeather.weatherDesc[0].value" style=""></td>
+            </tr>
+            <tr>
+                <td>Feels Like</td>
+                <td>{{ currentWeather.FeelsLikeC }} °C / {{ currentWeather.FeelsLikeF }} F</td>
+            </tr>
+            <tr>
+                <td>Wind Speed</td>
+                <td>{{ currentWeather.windspeedMiles }} Miles / {{ currentWeather.windspeedKmph }} Km</td>
+            </tr>
+            <tr>
+                <td>Humidity</td>
+                <td>{{ currentWeather.humidity }}%</td>
+            </tr>
+            <tr>
+                <td>Visibility</td>
+                <td>{{ currentWeather.visibility }} Km</td>
+            </tr>
+            <tr>
+                <td>Cloud Cover</td>
+                <td>{{ currentWeather.cloudcover }}%</td>
+            </tr>
+        </table>
+    </div>
+</div>

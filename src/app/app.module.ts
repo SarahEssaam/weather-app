@@ -2,15 +2,51 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
+import { AuthInterceptorService } from './auth-interceptor.service';
+import { GeneralDisplayComponent } from './general-display/general-display.component';
+import { MainAreaComponent } from './general-display/main-area/main-area.component';
+import { TabsAreaComponent } from './general-display/main-area/tabs-area/tabs-area.component';
+import { NowAreaComponent } from './general-display/main-area/tabs-area/now-area/now-area.component';
+import { HourlyAreaComponent } from './general-display/main-area/tabs-area/hourly-area/hourly-area.component';
+import { WeeklyAreaComponent } from './general-display/main-area/tabs-area/weekly-area/weekly-area.component';
+// import {MatTabsModule} from '@angular/material/tabs';
+import { FormsModule } from '@angular/forms';
+import { SearchComponent } from './general-display/main-area/search/search.component';
+import { AppRoutingModule } from './app-routing/app-routing.module';
+import { StatisticsComponent } from './statistics/statistics.component';
+import { DataProvider } from './app-routing/data.provider'
+// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    GeneralDisplayComponent,
+    MainAreaComponent,
+    TabsAreaComponent,
+    NowAreaComponent,
+    HourlyAreaComponent,
+    WeeklyAreaComponent,
+    SearchComponent,
+    StatisticsComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    // BrowserAnimationsModule,
+    // MatTabsModule,
+    HttpClientModule,
+    AppRoutingModule
   ],
-  providers: [],
+  providers: [ DataProvider,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

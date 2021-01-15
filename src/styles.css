@@ -1,1 +1,36 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import "~bootstrap/dist/css/bootstrap.css";
+
+/* h1 {
+    font-size: 250%;
+    color: white;
+    font-family: arial serif sans-serif;
+    opacity: 1;
+    font-weight: 800;
+    margin-top: 2%;
+    /* background-color: rgb(139, 131, 131); 
+    fill-opacity: 1;
+} */
+
+
+/* * {
+    margin: 0px;
+    padding: 0px;
+} */
+
+body {
+    background: url(../img/morning-sky.jpg) no-repeat center center fixed;
+    height: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.box-container {
+    /* border-radius: 2px; */
+    background-color: whitesmoke;
+    /* padding: 0.2%; */
+    /* background-blend-mode: unset; */
+}
