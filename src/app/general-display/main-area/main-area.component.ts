@@ -45,7 +45,7 @@ export class MainAreaComponent implements OnInit, OnDestroy {
     onShowStats(){
       this.data.climateAverages = this.weatherData.climateAverages;
       console.log(this.data.climateAverages);
-      // window.location.origin+'/statistics/';
+      return window.location.origin+'/statistics/';
     }
   
 }
