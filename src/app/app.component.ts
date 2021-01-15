@@ -3,11 +3,13 @@ import { Component } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { HttpFetchService } from './http-fetch.service';
 import { ErrorHandler } from './error-handler.model';
+import { DataProvider } from './app-routing/data.provider';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  providers: [DataProvider]
 })
 export class AppComponent {
   title = 'Weather Application';

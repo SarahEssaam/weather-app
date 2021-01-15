@@ -5,23 +5,22 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { HttpFetchService } from '../../http-fetch.service';
 import { Location } from '../../models/location.model';
 import { DataProvider } from 'src/app/app-routing/data.provider';
+import { Router } from '@angular/router';
 
 
 @Component({
   selector: 'app-main-area',
   templateUrl: './main-area.component.html',
   styleUrls: ['./main-area.component.css'],
-  providers: [DataProvider]
+
 
 })
-export class MainAreaComponent implements OnInit, OnDestroy {
+export class MainAreaComponent implements OnInit {
   weatherData: WeatherData;
   currentLocation: Location;
   statsPath: string;
-  constructor(private searchAPI: SearchService, public data: DataProvider, private http: HttpClient, private httpFetch: HttpFetchService, error: ErrorHandler) {}
-  ngOnDestroy(): void {
-    throw new Error('Method not implemented.');
-  }
+  constructor(private router: Router, private searchAPI: SearchService, public data: DataProvider, private http: HttpClient, private httpFetch: HttpFetchService, error: ErrorHandler) {}
+  
 
   ngOnInit(): void {
     this.searchAPI.getCurrentLocation((loc: Array<Location>) => {
@@ -45,7 +44,8 @@ export class MainAreaComponent implements OnInit, OnDestroy {
     onShowStats(){
       this.data.climateAverages = this.weatherData.climateAverages;
       console.log(this.data.climateAverages);
-      return window.location.origin+'/statistics/';
+      // return window.location.origin+'/statistics/';
+      this.router.navigateByUrl('/statistics');
     }
   
 }

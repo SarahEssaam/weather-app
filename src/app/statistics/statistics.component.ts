@@ -17,7 +17,7 @@ export class StatisticsComponent implements OnInit {
   //     this.climateAverages = data;
   // })
     this.climateAverages = this.data.climateAverages;
-    // console.log("In stats");
+    console.log("In stats");
     console.log(this.data.climateAverages);
     // console.log(DataProvider.climateAverages);
   }
