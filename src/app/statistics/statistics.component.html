@@ -1,1 +1,7 @@
-<p>statistics works!</p>
+<!-- <div *ngFor="let key of climateAverages[0].keys(); index as i;"> -->
+<h2>Temperature Averages</h2>
+<app-d3-chart id=id0 [climateAverages]="climateAverages" [param]="['avgMinTemp','avgMaxTemp','avgTemp']"></app-d3-chart>
+<h2>General Conditions</h2>
+<app-d3-chart id=id1 [climateAverages]="climateAverages" [param]="['avgDryDays','avgRainDays','avgThunderDays', 'avgFogDays']"></app-d3-chart>
+<h2>Sun and UV index</h2>
+<app-d3-chart id=id2 [climateAverages]="climateAverages" [param]="['avgSunHour','avgUVIndex']"></app-d3-chart>

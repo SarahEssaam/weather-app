@@ -1,4 +1,4 @@
-export interface ClimateAverage {
+export interface ClimateAverage extends Object{
     index: number;
     name: string; //month name
     avgMinTemp: number;

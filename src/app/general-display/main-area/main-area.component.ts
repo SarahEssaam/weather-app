@@ -46,6 +46,8 @@ export class MainAreaComponent implements OnInit {
       console.log(this.data.climateAverages);
       // return window.location.origin+'/statistics/';
       this.router.navigateByUrl('/statistics');
+
+      //  this.router.navigate([]).then(result => {  window.open('/statistics', '_blank'); });
     }
   
 }
