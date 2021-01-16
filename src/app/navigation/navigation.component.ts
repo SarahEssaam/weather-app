@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { DataProvider } from 'src/app/app-routing/data.provider';
+import { Component, Input, OnInit } from '@angular/core';
+import { DataService } from 'src/app/app-routing/data.service';
 import { Router } from '@angular/router';
+import { WeatherData } from '../models/weather-data.model';
 
 @Component({
   selector: 'app-navigation',
@@ -8,17 +9,20 @@ import { Router } from '@angular/router';
   styleUrls: ['./navigation.component.css']
 })
 export class NavigationComponent implements OnInit {
-
-  constructor(private router: Router, public data: DataProvider) { }
+  @Input() weatherData: WeatherData;
+  constructor(private router: Router, public data: DataService) { }
 
   ngOnInit(): void {
+    this.data.weatherData.subscribe((newWeatherData)=>{
+      console.log("in nav, subscribed to value");
+      this.weatherData = newWeatherData;
+      console.log(this.weatherData);
+    });
   }
   onShowStats(){
-      
-      console.log(this.data.climateAverages);
-      // return window.location.origin+'/statistics/';
-      this.router.navigateByUrl('/statistics');
-
-      //  this.router.navigate([]).then(result => {  window.open('/statistics', '_blank'); });
+    console.log("showing stats");
+    console.log(this.weatherData);
+    // this.data.weatherData = this.weatherData;
+    this.router.navigateByUrl('/statistics');
     }
 }

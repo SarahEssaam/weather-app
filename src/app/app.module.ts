@@ -15,7 +15,6 @@ import { FormsModule } from '@angular/forms';
 import { SearchComponent } from './general-display/main-area/search/search.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { StatisticsComponent } from './statistics/statistics.component';
-import { DataProvider } from './app-routing/data.provider';
 import { D3ChartComponent } from './statistics/d3-chart/d3-chart.component';
 import { NavigationComponent } from './navigation/navigation.component'
 // import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -45,7 +44,7 @@ import { NavigationComponent } from './navigation/navigation.component'
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [ DataProvider,
+  providers: [
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptorService,

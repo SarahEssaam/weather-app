@@ -1,17 +1,19 @@
-<app-search></app-search>
+<div class="row" style="float:right">
+    <app-search></app-search>
+</div>
 <div class="row">
     <div class="col-sm-4 ">
-        <h2>{{ currentLocation.areaName[0].value }}, {{ currentLocation.region[0].value }}, {{ currentLocation.country[0].value }}</h2>
+        <h2>{{ weatherData.currentLocation.areaName[0].value }}, {{ weatherData.currentLocation.region[0].value }}, {{ weatherData. currentLocation.country[0].value }}</h2>
     </div>
     <div class="col-sm-8 ">
         <div class="row">
             <p>Time: {{ weatherData.getCurrentTime() }}</p>
         </div>
-        <div class="row">
+        <!-- <div class="row">
             <br>
             <!-- <a [href]="onShowStats" target="_blank"><button class="btn btn-outline-success my-2 my-sm-0">Year Statistics</button></a> -->
-            <button (click)="onShowStats()" class="btn btn-outline-success my-2 my-sm-0">Year Statistics</button>
-        </div>
+        <!-- <button (click)="onShowStats()" class="btn btn-outline-success my-2 my-sm-0">Year Statistics</button>
+        </div> -->
     </div>
 </div>
 <br>

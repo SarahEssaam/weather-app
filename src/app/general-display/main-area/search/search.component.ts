@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AppComponent } from 'src/app/app.component';
 import { SearchService } from 'src/app/search.service';
 import { Location } from '../../../models/location.model';
 import { MainAreaComponent } from '../main-area.component';
@@ -11,8 +12,8 @@ import { MainAreaComponent } from '../main-area.component';
 export class SearchComponent implements OnInit {
   locations: Array<Location>;
   searchInput: string='';
-  currentLocation:Location;
-  constructor(private mainArea:MainAreaComponent, private searchService: SearchService, private myElement: ElementRef) {}
+  currentLocation: Location;
+  constructor(private appComponent: AppComponent, private searchService: SearchService, private myElement: ElementRef) {}
   onSearchInput(event: Event){
     this.searchInput  = (<HTMLTextAreaElement>event.target).value;
     console.log("event: "+(<HTMLTextAreaElement>event.target).value);
@@ -22,6 +23,8 @@ export class SearchComponent implements OnInit {
     } else{
       this.searchService.getMatchingLocations((<HTMLTextAreaElement>event.target).value, (loc) => {
         this.locations = loc;
+        console.log("Added locations");
+        console.log(this.locations);
       });
     }
   }
@@ -35,7 +38,7 @@ export class SearchComponent implements OnInit {
   updateTemplate(event: Event){
     this.locations.length = 0;
     this.searchInput = '';
-    this.mainArea.updateView(this.currentLocation);
+    this.appComponent.setGlobalData(this.currentLocation);
   }
   ngOnInit(): void {
   }

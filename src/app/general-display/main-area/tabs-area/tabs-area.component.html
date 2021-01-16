@@ -1,27 +1,15 @@
 <ul class="nav nav-pills">
     <li class="nav-item">
-        <a [ngClass]="{'active':activeTab=='Now'}" (click)="changeTab('Now');" class="nav-link" href="#">Now</a>
+        <a [ngClass]="{'active':activeTab==Tab.Now}" (click)="changeTab(Tab.Now);" class="nav-link">Now</a>
     </li>
     <li class="nav-item">
-        <a [ngClass]="{'active':activeTab=='Hourly'}" (click)="changeTab('Hourly')" class="nav-link" href="#">Hourly</a>
+        <a [ngClass]="{'active':activeTab==Tab.Hourly}" (click)="changeTab(Tab.Hourly)" class="nav-link">Hourly</a>
     </li>
     <li class="nav-item">
-        <a [ngClass]="{'active':activeTab=='Weekly'}" (click)="changeTab('Weekly')" class="nav-link" href="#">Weekly</a>
+        <a [ngClass]="{'active':activeTab==Tab.Weekly}" (click)="changeTab(Tab.Weekly)" class="nav-link">Weekly</a>
     </li>
 </ul>
 
-<app-now-area [currentWeather]="weatherData.currentWeather" *ngIf="activeTab=='Now'"></app-now-area>
-<app-hourly-area [weather]="weatherData.weather" *ngIf="activeTab=='Hourly'"></app-hourly-area>
-<app-weekly-area [weather]="weatherData.weather" *ngIf="activeTab=='Weekly'"></app-weekly-area>
-<!-- <mat-tab-group>
-    <mat-tab label="Short tab">
-        <div class="example-small-box mat-elevation-z4">
-            Small content
-        </div>
-    </mat-tab>
-    <mat-tab label="Long tab">
-        <div class="example-large-box mat-elevation-z4">
-            Large content
-        </div>
-    </mat-tab>
-</mat-tab-group> -->
+<app-now-area [currentWeather]="weatherData.currentWeather" *ngIf="activeTab==Tab.Now"></app-now-area>
+<app-hourly-area [weather]="weatherData.weather" *ngIf="activeTab==Tab.Hourly"></app-hourly-area>
+<app-weekly-area [weather]="weatherData.weather" *ngIf="activeTab==Tab.Weekly"></app-weekly-area>

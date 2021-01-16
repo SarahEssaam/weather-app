@@ -4,6 +4,7 @@ import { ClimateAverage } from "./climate-average.model";
 import { CurrentWeather } from "./current-weather.model";
 import { TimeZone } from "./timezone.model";
 import { Weather } from "./weather.model";
+import { Location } from "./location.model";
 
 export class WeatherData {
     timeZone: TimeZone;
@@ -11,8 +12,9 @@ export class WeatherData {
     weatherArr: Array<Weather>;
     climateAverages: Array<ClimateAverage>;
     query: string;
+    currentLocation: Location;
     
-    constructor (data: any){
+    constructor (data: any, location?: Location){
         this.currentWeather = data.current_condition[0];
         console.log(data);
         // this.weather = data.weather;
@@ -20,6 +22,9 @@ export class WeatherData {
         this.timeZone = data.time_zone[0];
         this.weatherArr = data.weather;
         this.climateAverages = data.ClimateAverages[0].month;
+        
+        this.currentLocation = location;
+        
         // console.log(`this is weather ${this.weatherArr}`);
     }
     getCurrentTime(){

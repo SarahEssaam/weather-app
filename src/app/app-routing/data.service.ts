@@ -1,5 +1,9 @@
-import { ClimateAverage } from "../models/climate-average.model";
+import { Injectable } from "@angular/core";
+import { Subject } from "rxjs";
+import { WeatherData } from "../models/weather-data.model";
 
+@Injectable({providedIn: 'root'})
 export class DataService {
-    public climateAverages: Array<ClimateAverage>;
+    weatherData: Subject<WeatherData> = new Subject();
+    
 }

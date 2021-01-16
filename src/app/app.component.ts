@@ -1,39 +1,40 @@
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { Component } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
+import { HttpParams } from '@angular/common/http';
 import { HttpFetchService } from './http-fetch.service';
-import { ErrorHandler } from './error-handler.model';
-import { DataProvider } from './app-routing/data.provider';
+import { Location } from './models/location.model';
+import { DataService } from 'src/app/app-routing/data.service';
+import { SearchService } from 'src/app/search.service';
+import { WeatherData } from 'src/app/models/weather-data.model';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [DataProvider]
 })
-export class AppComponent {
-  title = 'Weather Application';
-//   error: ErrorHandler;
-//  // isFetching = false;
-  
-//   constructor(private http: HttpClient, private httpFetch: HttpFetchService, error: ErrorHandler) {}
-//   ngOnInit(){
-//       this.error.errorSub = this.httpFetch.error.subscribe(errorMessage => {
-//       this.error.message = errorMessage;
-//     });
 
-//     //this.isFetching = true;
-//     this.httpFetch.fetch().subscribe(
-//       response => {
-//         console.log(response);
-//       },
-//       error => {
-//    //     this.isFetching = false;
-//         this.error.message = error.message;
-//       }
-//     );
-//   }
-//   ngOnDestroy() {
-//     this.error.errorSub.unsubscribe();
-//   }
+export class AppComponent implements OnInit {
+  title = 'InstWeather';
+  weatherData: WeatherData;
+
+  constructor(private searchAPI: SearchService, public data: DataService, private httpFetch: HttpFetchService) {}
+  ngOnInit(): void {
+    this.searchAPI.getCurrentLocation((loc: Array<Location>) => {  
+    this.setGlobalData(loc[0]);
+  });
+  }
+  setGlobalData (location: Location){
+    this.httpFetch.fetch('weather.ashx' ,(new HttpParams()).append('showlocaltime','yes').append('q',`${location.latitude},${location.longitude}`))
+    .subscribe(
+      response => {
+        console.log("Response recieved:");
+        this.weatherData = new WeatherData(response.data, location);
+        console.log(this.weatherData);
+        console.log("Adding data ...");
+        this.data.weatherData.next(this.weatherData);
+      });
+  }
+  onOutletLoaded(component) {
+    console.log("outlet loaded, passing data to general");
+    component.node = this.weatherData;
+  }   
 }

@@ -11,6 +11,7 @@ export class NowAreaComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    console.log("init now tab");
     console.log(this.currentWeather);
   }
 

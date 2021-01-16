@@ -10,22 +10,25 @@ export class SearchService {
  // locations: Array<Location>;
   constructor(private http: HttpClient, private httpFetch: HttpFetchService) { }
   getCurrentLocation (callback) {
-    var q = '';
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => { 
         // this.latitude =  
         console.log(position.coords.latitude);
         // this.longitude = 
         console.log(position.coords.longitude);
-        q= `${position.coords.latitude},${position.coords.longitude}`;
-        this.getMatchingLocations(q, callback);
-        
+        this.getLocation({latitude: position.coords.latitude, longitude: position.coords.longitude}, callback);
       });
     } 
+  }
 
-    // else { 
-    //   x.innerHTML = "Geolocation is not supported by this browser.";
-    // }
+  getLocation(location: {latitude: number, longitude: number}, callback){
+    let q= `${location.latitude},${location.longitude}`;
+    this.httpFetch.fetch('search.ashx' ,new HttpParams().append('q',q))
+    .subscribe(
+      response => {
+        console.log(response);
+        callback(response.search_api.result);
+      });
   }
   getMatchingLocations(searchPattern: string, callback){
     this.httpFetch.fetch('search.ashx' ,new HttpParams().append('q',searchPattern))
