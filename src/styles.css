@@ -73,7 +73,8 @@ body {
     /* align-items: center;
     justify-content: center; */
     height: 100vh;
-    background: rgba(193, 230, 247, 0.884);
+    /* background: rgb(37, 108, 240); */
+    background: #04396d;
     /* background: url(../img/db-bg.jpg) no-repeat center center fixed; */
     height: 100%;
     -webkit-background-size: cover;
@@ -89,6 +90,7 @@ body {
     -webkit-background-clip: text;
     background-clip: text;
     padding-right: 2em;
+    width: 70%;
     /* text-align: center; */
     /* text-transform: uppercase; */
 }
@@ -103,14 +105,9 @@ h1 {
     font-size: 150%;
 }
 
-
-/* #main-navbar li {
+#main-navbar li {
     margin-right: 30%;
 }
-
-#navbarColor03 {
-    align-self: right;
-} */
 
 
 /* header {} */

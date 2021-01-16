@@ -28,6 +28,8 @@ export class MainAreaComponent implements OnInit {
     // this.location = {long:30,lat:30};
     this.currentLocation = loc[0];
     this.updateView(this.currentLocation);
+    // make data availale for other components
+    this.data.climateAverages = this.weatherData.climateAverages;
   });
 }
    updateView(newLocation: Location){
