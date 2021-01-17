@@ -16,7 +16,8 @@ import { SearchComponent } from './general-display/main-area/search/search.compo
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { StatisticsComponent } from './statistics/statistics.component';
 import { D3ChartComponent } from './statistics/d3-chart/d3-chart.component';
-import { NavigationComponent } from './navigation/navigation.component'
+import { NavigationComponent } from './navigation/navigation.component';
+import { AboutComponent } from './about/about.component'
 // import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
@@ -34,7 +35,8 @@ import { NavigationComponent } from './navigation/navigation.component'
     SearchComponent,
     StatisticsComponent,
     D3ChartComponent,
-    NavigationComponent
+    NavigationComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

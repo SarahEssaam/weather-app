@@ -1,4 +1,5 @@
 <!-- <div *ngFor="let key of climateAverages[0].keys(); index as i;"> -->
+<app-navigation [weatherData]="weatherData"></app-navigation>
 <h2>Temperature Averages</h2>
 <app-d3-chart id=id0 [climateAverages]="climateAverages" [param]="['avgMinTemp','avgMaxTemp','avgTemp']"></app-d3-chart>
 <h2>General Conditions</h2>

@@ -4,16 +4,19 @@ import { RouterModule, Routes } from '@angular/router';
 import { StatisticsComponent } from '../statistics/statistics.component'
 import { GeneralDisplayComponent } from '../general-display/general-display.component';
 import { AppComponent } from '../app.component';
+import { AboutComponent } from '../about/about.component';
 
 const routes: Routes = [
     {
-        path: '',
+        path: 'home',
         component: GeneralDisplayComponent,
     },
     {
       path: 'statistics',
       component: StatisticsComponent,
-  }
+  },
+  { path: '',   redirectTo: '/home', pathMatch: 'full' },
+  { path: 'about', component: AboutComponent }
 ];
 
 @NgModule({
