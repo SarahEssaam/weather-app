@@ -6,6 +6,7 @@ import { TimeZone } from "./timezone.model";
 import { Weather } from "./weather.model";
 import { Location } from "./location.model";
 
+
 export class WeatherData {
     timeZone: TimeZone;
     currentWeather: CurrentWeather;

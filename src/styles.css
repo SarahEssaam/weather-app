@@ -9,7 +9,8 @@ body {
     /* height: 100vh; */
     /* background: rgb(37, 108, 240); */
     background: #04396d;
-    background: url(../img/1ADKh8.jpg) no-repeat center center fixed;
+    /* background: url(../img/1ADKh8.jpg) no-repeat center center fixed; */
+    background: #0d1e66;
     height: 100%;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -86,4 +87,13 @@ h3 {
 .box-container td {
     color: #04396d;
     color: darkblue;
+}
+
+.btn {
+    color: white;
+    border-color: white;
+    background-color: #007BFF;
+    font-weight: 500;
+    display: inline-block;
+    margin-top: 5px;
 }

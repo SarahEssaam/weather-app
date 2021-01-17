@@ -1,8 +1,9 @@
+
 export interface ClimateAverage extends Object{
     index: number;
     name: string; //month name
     avgMinTemp: number;
-    avgMinTemp_F: 49.7;
+    avgMinTemp_F: number;
     avgMaxTemp: number;
     avgMaxTemp_F: number;
     absMinTemp: number;
@@ -22,3 +23,4 @@ export interface ClimateAverage extends Object{
     avgSunHour: number;
 
 }
+

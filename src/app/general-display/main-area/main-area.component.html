@@ -1,12 +1,12 @@
 <div class="container-fluid">
     <div class="row">
-        <div id="div-location" class="col-lg-4 ">
+        <div id="div-location" class="col-lg-3 ">
             <h2>Location </h2>
             <div class="box-container">
                 <h3>{{ weatherData.currentLocation.areaName[0].value }},<br>{{ weatherData.currentLocation.region[0].value }},<br>{{ weatherData. currentLocation.country[0].value }}</h3>
             </div>
         </div>
-        <div class="col-lg-4">
+        <div class="col-lg-3">
             <h2>Time </h2>
             <div class="box-container">
                 <h3>{{ weatherData.getCurrentTime() }}</h3>
@@ -18,8 +18,11 @@
             <!-- <a [href]="onShowStats" target="_blank"><button class="btn btn-outline-success my-2 my-sm-0">Year Statistics</button></a> -->
         <!-- <button (click)="onShowStats()" class="btn btn-outline-success my-2 my-sm-0">Year Statistics</button>
         </div> -->
-        <div class="col-lg-4">
+        <div class="col-lg-3">
             <app-search></app-search>
+        </div>
+        <div class="col-lg-3">
+            <button id="btn-show-loc-curr" (click)="appComponent.initialize()" class="btn " type="submit">Show Current Location</button>
         </div>
     </div>
 </div>
