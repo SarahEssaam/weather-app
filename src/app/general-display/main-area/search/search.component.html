@@ -1,13 +1,12 @@
-<div class="row ">
-    <nav class="container">
-        <a class="navbar-brand"><strong>Find<br>City</strong></a>
-        <form class="form-inline">
-            <input [value]="searchInput" id="search-input" (input)="onSearchInput($event)" type="text" class="form-control mr-sm-2" placeholder="Search" aria-label="Search">
-            <!-- <ul class="dropdown-menu"> -->
-            <button *ngFor="let loc of locations"> <a type="text" (click)="updateSearchField($event,loc);"> {{ loc.areaName[0].value }}, {{ loc.region[0].value }}, {{ loc.country[0].value }} </a> </button>
-            <!-- </ul> -->
-            <button (click)="updateTemplate($event)" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
-    </nav>
-</div>
-<br>
+<h2 class="navbar-brand">
+    Find City:</h2>
+<form class="form">
+    <!--class="dropdown"-->
+    <!-- [ngStyle]="{'position':'relative'}"  -->
+    <div class="dropdown-content">
+        <input [value]="searchInput" id="search-input" autocomplete="off" (input)="onSearchInput($event)" type="text" class="form-control mr-sm-2" placeholder="Search" aria-label="Search">
+        <a *ngFor="let loc of locations" type="text" (click)="updateSearchField($event,loc);"> {{ loc.areaName[0].value }}, {{ loc.region[0].value }}, {{ loc.country[0].value }} </a>
+    </div>
+</form>
+
+<br><br><button (click)="updateTemplate($event)" class="btn " type="submit">Update</button>

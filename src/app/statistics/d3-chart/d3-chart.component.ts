@@ -58,7 +58,7 @@ export class D3ChartComponent implements OnInit {
     .attr("cy", d => y(d.avgTemp))
     .attr("r", 7)
     .style("opacity", .5)
-    .style("fill", "#69b3a2");
+    .style("fill", "#69b3a2"); 
 
     // Add labels
     dots.selectAll("text")

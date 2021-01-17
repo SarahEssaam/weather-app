@@ -42,5 +42,13 @@ export class SearchComponent implements OnInit {
   }
   ngOnInit(): void {
   }
+  getListPosition(){
+    if (this.locations.length == 0){
+      return 'relative';
+    } else{
+      return 'absolute';
+    }
+      
+  }
 
 }

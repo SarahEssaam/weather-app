@@ -1,81 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import "~bootstrap/dist/css/bootstrap.css";
-
-/* h1 {
-    font-size: 250%;
-    color: white;
-    font-family: arial serif sans-serif;
-    opacity: 1;
-    font-weight: 800;
-    margin-top: 2%;
-    /* background-color: rgb(139, 131, 131); 
-    fill-opacity: 1;
-} */
-
-
-/* * {
-    margin: 0px;
-    padding: 0px;
-} */
-
-
-/* body {
-    color: white;
-}
-*/
-
-
-/* body {
-    background: url(../img/morning-sky.jpg) no-repeat center center fixed;
-    background: url(../img/blue-7.jpg) center center fixed;
-    height: 100%;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-} */
-
-
-/*
-.box-container {  */
-
-
-/*
-    /* border-radius: 2px; */
-
-
-/* background-color: whitesmoke; */
-
-
-/* padding: 0.2%; */
-
-
-/* background-blend-mode: unset; 
-}
-*/
-
-
-/* html,
-body {
-    margin: 0;
-    padding: 0;
-} */
-
 @import url(https://fonts.googleapis.com/css?family=Erica+One);
-.container {
-    /* margin-left: 10%; */
-    margin-right: 0px;
-}
-
 body {
     display: flex;
     /* align-items: center;
     justify-content: center; */
-    height: 100vh;
+    /* height: 100vh; */
     /* background: rgb(37, 108, 240); */
     background: #04396d;
-    /* background: url(../img/db-bg.jpg) no-repeat center center fixed; */
+    background: url(../img/1ADKh8.jpg) no-repeat center center fixed;
     height: 100%;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -92,11 +26,9 @@ body {
     background-clip: text;
     padding-right: 2em;
     width: 70%;
-    /* text-align: center; */
-    /* text-transform: uppercase; */
 }
 
-h1 {
+#main-header h1 {
     font-family: 'Erica One', cursive;
     font-size: 5em;
     font-weight: normal;
@@ -104,11 +36,54 @@ h1 {
 
 .nav-link {
     font-size: 150%;
+    font-weight: bold;
 }
 
 #main-navbar li {
+    width: auto;
     margin-right: 30%;
 }
 
+h2 {
+    color: whitesmoke;
+    font-weight: 600;
+    font-family: Arial, Helvetica, sans-serif;
+    color: whitesmoke;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif, 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #6fb2fa;
+}
 
-/* header {} */
+h3 {
+    font-weight: 500;
+    font-size: larger;
+    color: #007BFF;
+}
+
+#div-location {
+    /* width: 100%; */
+    /* border: 2px solid; */
+    /* background-color: rgba(245, 245, 245); */
+    /* background-color: #87c1fad8; */
+    /* text-align: center; */
+}
+
+.col-lg-4 {
+    width: 30%;
+}
+
+.box-container {
+    background-color: whitesmoke;
+    font-size: larger;
+    font-weight: 500;
+    margin: 10px;
+    /* margin-left: 30%;
+    margin-right: 30%; */
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.box-container td {
+    color: #04396d;
+    color: darkblue;
+}
