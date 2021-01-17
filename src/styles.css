@@ -4,13 +4,7 @@
 @import url(https://fonts.googleapis.com/css?family=Erica+One);
 body {
     display: flex;
-    /* align-items: center;
-    justify-content: center; */
-    /* height: 100vh; */
-    /* background: rgb(37, 108, 240); */
-    background: #0d1e66;
-    background: url(../img/1ADKh8.jpg) no-repeat center center fixed;
-    /* background: #04396d; */
+    background: url(../img/2ADKh8.jpg) no-repeat center center fixed;
     height: 100%;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -60,15 +54,7 @@ h3 {
     color: #007BFF;
 }
 
-#div-location {
-    /* width: 100%; */
-    /* border: 2px solid; */
-    /* background-color: rgba(245, 245, 245); */
-    /* background-color: #87c1fad8; */
-    /* text-align: center; */
-}
-
-.col-lg-4 {
+# .col-lg-4 {
     width: 30%;
 }
 
@@ -77,8 +63,6 @@ h3 {
     font-size: larger;
     font-weight: 500;
     margin: 10px;
-    /* margin-left: 30%;
-    margin-right: 30%; */
     padding: 10px;
     text-align: center;
     border-radius: 5px;
