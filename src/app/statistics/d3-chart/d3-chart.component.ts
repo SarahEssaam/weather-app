@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import * as d3 from 'd3';
 import { ClimateAverage } from 'src/app/models/climate-average.model';
+import { WeatherData } from 'src/app/models/weather-data.model';
 
 
 @Component({
@@ -9,8 +10,9 @@ import { ClimateAverage } from 'src/app/models/climate-average.model';
   styleUrls: ['./d3-chart.component.css']
 })
 export class D3ChartComponent implements OnInit {
-  @Input() climateAverages: Array<ClimateAverage>;
-  @Input() param: Array<string>;
+  @Input() weatherData: WeatherData;
+  climateAverages: Array<ClimateAverage>;
+  @Input() param: string;
   private svg;
   private margin = 50;
   private width = 750 - (this.margin * 2);
@@ -22,15 +24,15 @@ export class D3ChartComponent implements OnInit {
 
 
   ngOnInit(): void {
-    console.log(this.climateAverages);
+    // console.log(this.climateAverages);
     console.log(this.param);
     this.createSvg();
-    this.param.forEach(element => {
-      this.drawPlot(element);  
-    });
+    this.climateAverages = this.weatherData.climateAverages;
+    console.log(this.climateAverages);
+    this.drawPlot(this.param);  
   }
   private createSvg(): void {
-    this.svg = d3.select("#"+this.id)
+    this.svg = d3.select("#"+this.id)   
     .append("svg")
     .attr("width", this.width + (this.margin * 2))
     .attr("height", this.height + (this.margin * 2))
@@ -49,7 +51,7 @@ export class D3ChartComponent implements OnInit {
       .call(d3.axisBottom(x));
     
     var y = d3.scaleLinear()
-    .domain([0, d3.max(this.climateAverages, function(d) { return + d[param]; })])
+    .domain([d3.min(this.climateAverages, function(d) { return + d[param]; }), d3.max(this.climateAverages, function(d) { return + d[param]; })])
     .range([ this.height, 0]);
     this.svg.append("g")
     .call(d3.axisLeft(y));

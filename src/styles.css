@@ -8,9 +8,9 @@ body {
     justify-content: center; */
     /* height: 100vh; */
     /* background: rgb(37, 108, 240); */
-    background: #04396d;
-    /* background: url(../img/1ADKh8.jpg) no-repeat center center fixed; */
     background: #0d1e66;
+    background: url(../img/1ADKh8.jpg) no-repeat center center fixed;
+    /* background: #04396d; */
     height: 100%;
     -webkit-background-size: cover;
     -moz-background-size: cover;

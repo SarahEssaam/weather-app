@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div id="main-frame">
     <div class="row">
         <div id="div-location" class="col-lg-3 ">
             <h2>Location </h2>
@@ -12,12 +12,6 @@
                 <h3>{{ weatherData.getCurrentTime() }}</h3>
             </div>
         </div>
-
-        <!-- <div class="row">
-            <br>
-            <!-- <a [href]="onShowStats" target="_blank"><button class="btn btn-outline-success my-2 my-sm-0">Year Statistics</button></a> -->
-        <!-- <button (click)="onShowStats()" class="btn btn-outline-success my-2 my-sm-0">Year Statistics</button>
-        </div> -->
         <div class="col-lg-3">
             <app-search></app-search>
         </div>
@@ -25,15 +19,7 @@
             <button id="btn-show-loc-curr" (click)="appComponent.initialize()" class="btn " type="submit">Show Current Location</button>
         </div>
     </div>
-</div>
-
-<div class="container-fluid">
-    <div class="box-container" style="width: 100%;">
-        <!-- <div class="col-lg-4"></div>
-
-        <div class="col-lg-4"> -->
-        <app-tabs-area [weatherData]="weatherData"></app-tabs-area>
-        <!-- </div>
-        <div class="col-lg-4"></div> -->
+    <div class="box-container">
+        <app-tabs-area [weatherData]="weatherData "></app-tabs-area>
     </div>
 </div>

@@ -1,16 +1,35 @@
-<!-- <div *ngFor="let key of climateAverages[0].keys(); index as i;"> -->
 <app-navigation [weatherData]="weatherData"></app-navigation>
 <div *ngIf="weatherData != undefined">
-    <h2>Location</h2>
-    <div class="box-container">
-        <h3>{{ weatherData.currentLocation.areaName[0].value }}, {{ weatherData.currentLocation.region[0].value }}, {{ weatherData. currentLocation.country[0].value }}</h3>
+    <div class="container">
+        <h2 style="display:inline-block">Location </h2>
+        <div style="display:inline-block" class="box-container">
+            <h3>{{ weatherData.currentLocation.areaName[0].value }}, {{ weatherData.currentLocation.region[0].value }}, {{ weatherData. currentLocation.country[0].value }}</h3>
+        </div>
     </div>
-    <h2>Temperature Averages</h2>
-    <div class="box-container">
-        <app-d3-chart id=id0 [climateAverages]="climateAverages" [param]="['avgTemp']"></app-d3-chart>
+    <div class="container-fluid">
+        <div class="figure-g">
+            <h2>Temperature Averages / Month</h2>
+            <div class="box-container">
+                <app-d3-chart id=id0 [weatherData]="weatherData" [param]="'avgTemp'"></app-d3-chart>
+            </div>
+        </div>
+        <div class="figure-g">
+            <h2>Average Fog Days / Month</h2>
+            <div class="box-container">
+                <app-d3-chart id=id1 [weatherData]="weatherData" [param]="'avgFogDays'"></app-d3-chart>
+            </div>
+        </div>
+        <div class="figure-g">
+            <h2>Average Rain Days / Month</h2>
+            <div class="box-container">
+                <app-d3-chart id=id2 [weatherData]="weatherData" [param]="'avgRainDays'"></app-d3-chart>
+            </div>
+        </div>
     </div>
-    <h2>General Conditions</h2>
-    <app-d3-chart id=id1 [climateAverages]="climateAverages" [param]="['avgFogDays']"></app-d3-chart>
-    <h2>Sun and UV index</h2>
-    <app-d3-chart id=id2 [climateAverages]="climateAverages" [param]="['avgSunHour']"></app-d3-chart>
+    <!-- <div *ngFor="let key of mainGraphKeys"> 
+        <h2>{{ Titles[key] }}</h2>
+        <div class="box-container">
+            <app-d3-chart id="key" [climateAverages]="climateAverages" [param]="key"></app-d3-chart>
+        </div>
+    </div>  -->
 </div>

@@ -17,13 +17,10 @@ export class WeatherData {
     
     constructor (data: any, location?: Location){
         this.currentWeather = data.current_condition[0];
-        console.log(data);
-        // this.weather = data.weather;
         this.query = data.request[0].query;
         this.timeZone = data.time_zone[0];
         this.weatherArr = data.weather;
         this.climateAverages = data.ClimateAverages[0].month;
-        
         this.currentLocation = location;
         
         // console.log(`this is weather ${this.weatherArr}`);
