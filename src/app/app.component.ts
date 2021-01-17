@@ -18,9 +18,11 @@ export class AppComponent implements OnInit {
 
   constructor(private searchAPI: SearchService, public data: DataService, private httpFetch: HttpFetchService) {}
   ngOnInit(): void {
-    this.searchAPI.getCurrentLocation((loc: Array<Location>) => {  
-    this.setGlobalData(loc[0]);
-  });
+    if (this.weatherData == undefined) {
+      this.searchAPI.getCurrentLocation((loc: Array<Location>) => {  
+      this.setGlobalData(loc[0]);
+      });
+    }
   }
   setGlobalData (location: Location){
     this.httpFetch.fetch('weather.ashx' ,(new HttpParams()).append('showlocaltime','yes').append('q',`${location.latitude},${location.longitude}`))
@@ -32,9 +34,20 @@ export class AppComponent implements OnInit {
         console.log("Adding data ...");
         this.data.weatherData.next(this.weatherData);
       });
+      console.log("set global data done");
   }
+  
   onOutletLoaded(component) {
     console.log("outlet loaded, passing data to general");
+    console.log(this.weatherData);
+    // this.data.weatherData.subscribe((newWeatherData)=>{
+    //   console.log("in oulet loaded, subscribed to value");
+    //   this.weatherData = newWeatherData;
+    //   console.log(this.weatherData);
+    // });
+    console.log(component);
+    // this.data.weatherData.next(this.weatherData);
     component.node = this.weatherData;
+    console.log(this.weatherData);
   }   
 }

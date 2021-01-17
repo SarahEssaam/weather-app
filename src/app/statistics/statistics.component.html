@@ -5,7 +5,9 @@
     <h3>{{ weatherData.currentLocation.areaName[0].value }}, {{ weatherData.currentLocation.region[0].value }}, {{ weatherData. currentLocation.country[0].value }}</h3>
 </div>
 <h2>Temperature Averages</h2>
-<app-d3-chart id=id0 [climateAverages]="climateAverages" [param]="['avgTemp']"></app-d3-chart>
+<div class="box-container">
+    <app-d3-chart id=id0 [climateAverages]="climateAverages" [param]="['avgTemp']"></app-d3-chart>
+</div>
 <h2>General Conditions</h2>
 <app-d3-chart id=id1 [climateAverages]="climateAverages" [param]="['avgFogDays']"></app-d3-chart>
 <h2>Sun and UV index</h2>
