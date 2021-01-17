@@ -18,11 +18,16 @@ export class AppComponent implements OnInit {
 
   constructor(private searchAPI: SearchService, public data: DataService, private httpFetch: HttpFetchService) {}
   ngOnInit(): void {
+    // a guard due to routing sometimes re-initializes app component
     if (this.weatherData == undefined) {
-      this.searchAPI.getCurrentLocation((loc: Array<Location>) => {  
-      this.setGlobalData(loc[0]);
-      });
+        this.initialize();   
     }
+  }
+
+  initialize(){
+    this.searchAPI.getCurrentLocation((loc: Array<Location>) => {  
+    this.setGlobalData(loc[0]);
+    });
   }
   setGlobalData (location: Location){
     this.httpFetch.fetch('weather.ashx' ,(new HttpParams()).append('showlocaltime','yes').append('q',`${location.latitude},${location.longitude}`))

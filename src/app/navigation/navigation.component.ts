@@ -11,6 +11,7 @@ import { WeatherData } from '../models/weather-data.model';
 export class NavigationComponent implements OnInit {
   @Input() weatherData: WeatherData;
   constructor(private router: Router, public data: DataService) { }
+  
 
   ngOnInit(): void {
     this.data.weatherData.subscribe((newWeatherData)=>{
@@ -19,11 +20,11 @@ export class NavigationComponent implements OnInit {
       console.log(this.weatherData);
     });
   }
-  onShowStats(){
+  navigating(event: Event, path:string){
     console.log("showing stats");
     console.log(this.weatherData);
     // this.data.weatherData = this.weatherData;
     this.data.weatherData.next(this.weatherData);
-    this.router.navigateByUrl('/statistics');
+    this.router.navigateByUrl(path);
     }
 }

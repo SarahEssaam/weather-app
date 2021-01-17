@@ -87,3 +87,12 @@ h3 {
     color: #04396d;
     color: darkblue;
 }
+
+.btn {
+    color: white;
+    border-color: white;
+    background-color: #007BFF;
+    font-weight: 500;
+    display: inline-block;
+    margin-top: 5px;
+}
