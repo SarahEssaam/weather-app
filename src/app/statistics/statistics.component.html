@@ -1,8 +1,12 @@
 <!-- <div *ngFor="let key of climateAverages[0].keys(); index as i;"> -->
 <app-navigation [weatherData]="weatherData"></app-navigation>
+<h2>Location</h2>
+<div class="box-container">
+    <h3>{{ weatherData.currentLocation.areaName[0].value }}, {{ weatherData.currentLocation.region[0].value }}, {{ weatherData. currentLocation.country[0].value }}</h3>
+</div>
 <h2>Temperature Averages</h2>
-<app-d3-chart id=id0 [climateAverages]="climateAverages" [param]="['avgMinTemp','avgMaxTemp','avgTemp']"></app-d3-chart>
+<app-d3-chart id=id0 [climateAverages]="climateAverages" [param]="['avgTemp']"></app-d3-chart>
 <h2>General Conditions</h2>
-<app-d3-chart id=id1 [climateAverages]="climateAverages" [param]="['avgDryDays','avgRainDays','avgThunderDays', 'avgFogDays']"></app-d3-chart>
+<app-d3-chart id=id1 [climateAverages]="climateAverages" [param]="['avgFogDays']"></app-d3-chart>
 <h2>Sun and UV index</h2>
-<app-d3-chart id=id2 [climateAverages]="climateAverages" [param]="['avgSunHour','avgUVIndex']"></app-d3-chart>
+<app-d3-chart id=id2 [climateAverages]="climateAverages" [param]="['avgSunHour']"></app-d3-chart>

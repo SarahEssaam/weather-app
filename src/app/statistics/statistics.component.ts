@@ -17,6 +17,7 @@ export class StatisticsComponent implements OnInit {
   ngOnInit(): void {
     this.data.weatherData.subscribe((newWeatherData)=>{
       this.climateAverages = newWeatherData.climateAverages;
+      this.weatherData = newWeatherData;
       console.log("In stats, subscribing to data");
       console.log(this.climateAverages);
     });

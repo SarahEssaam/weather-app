@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { WeatherData } from 'src/app/models/weather-data.model';
 
 
@@ -9,11 +9,14 @@ import { WeatherData } from 'src/app/models/weather-data.model';
 
 
 })
-export class MainAreaComponent {
+export class MainAreaComponent implements OnInit{
   @Input() weatherData: WeatherData;
   
   constructor() {}
-  
+  ngOnInit (){
+    console.log("in main");
+    console.log(this.weatherData);
+  }
   
 }
 
