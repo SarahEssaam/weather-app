@@ -1,6 +1,6 @@
 <app-navigation [weatherData]="weatherData"></app-navigation>
 <div *ngIf="weatherData != undefined">
-    <div clangss="container">
+    <div class="container">
         <h2 style="display:inline-block">Location </h2>
         <div style="display:inline-block" class="box-container">
             <h3>{{ weatherData.currentLocation.areaName[0].value }}, {{ weatherData.currentLocation.region[0].value }}, {{ weatherData. currentLocation.country[0].value }}</h3>
