@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { AppComponent } from 'src/app/app.component';
-import { SearchService } from 'src/app/search.service';
+import { SearchService } from 'src/app/services/search.service';
 import { Location } from '../../../models/location.model';
 import { MainAreaComponent } from '../main-area.component';
 

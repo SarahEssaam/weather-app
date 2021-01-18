@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpParams } from '@angular/common/http';
-import { HttpFetchService } from './http-fetch.service';
+import { HttpFetchService } from './services/http-fetch.service';
 import { Location } from './models/location.model';
-import { DataService } from 'src/app/app-routing/data.service';
-import { SearchService } from 'src/app/search.service';
+import { DataService } from 'src/app/services/data.service';
+import { SearchService } from 'src/app/services/search.service';
 import { WeatherData } from 'src/app/models/weather-data.model';
 
 @Component({

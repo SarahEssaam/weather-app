@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { DataService } from 'src/app/app-routing/data.service';
+import { DataService } from 'src/app/services/data.service';
 import { Router } from '@angular/router';
 import { WeatherData } from '../models/weather-data.model';
 

@@ -1,7 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { HttpFetchService } from './http-fetch.service';
-import { Location } from './models/location.model';
+import { Location } from '../models/location.model';
 
 @Injectable({
   providedIn: 'root'
