@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import * as d3 from 'd3';
 import { ClimateAverage } from 'src/app/models/climate-average.model';
 import { WeatherData } from 'src/app/models/weather-data.model';
+import { DataService } from 'src/app/services/data.service';
 
 
 @Component({
@@ -20,15 +21,37 @@ export class D3ChartComponent implements OnInit {
   private x;
   private y;
   @Input() id: string;
-  constructor() { }
+  constructor(public data: DataService) { }
 
 
   ngOnInit(): void {
     // console.log(this.climateAverages);
-    console.log(this.param);
+    this.data.weatherData.subscribe((newWeatherData)=>{
+      console.log("in D3, subscribed to new value");
+      this.weatherData = newWeatherData;
+      console.log(this.weatherData);
+      this.climateAverages = this.weatherData.climateAverages;
+      console.log(this.climateAverages);
+      console.log("svg:");
+      console.log(this.svg);
+      if(this.svg == undefined) {
+        this.drawGraph();
+      } else {
+        this.redrawGraph();
+      }
+    });
+    
+  }
+  private redrawGraph(){
+    console.log("Redrawing");
+    // this.svg.remove();
+    // // this.createSvg();
+    // console.log(this.svg);
+    // this.drawPlot(this.param);
+  }
+  private drawGraph(){
+    console.log("drawing");
     this.createSvg();
-    this.climateAverages = this.weatherData.climateAverages;
-    console.log(this.climateAverages);
     this.drawPlot(this.param);  
   }
   private createSvg(): void {

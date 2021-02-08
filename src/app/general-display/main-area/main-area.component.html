@@ -1,25 +1,8 @@
 <div id="main-frame">
+    <app-main-panel [weatherData]="weatherData"></app-main-panel>
     <div class="row">
-        <div id="div-location" class="col-lg-3 ">
-            <h2>Location </h2>
-            <div class="box-container">
-                <h3>{{ weatherData.currentLocation.areaName[0].value }},<br>{{ weatherData.currentLocation.region[0].value }},<br>{{ weatherData. currentLocation.country[0].value }}</h3>
-            </div>
+        <div class="box-container full-width">
+            <app-tabs-area [weatherData]="weatherData "></app-tabs-area>
         </div>
-        <div class="col-lg-3">
-            <h2>Time </h2>
-            <div class="box-container">
-                <h3>{{ weatherData.getCurrentTime() }}</h3>
-            </div>
-        </div>
-        <div class="col-lg-3">
-            <app-search></app-search>
-        </div>
-        <div class="col-lg-3">
-            <button id="btn-show-loc-curr" (click)="appComponent.initialize()" class="btn " type="submit">Show Current Location</button>
-        </div>
-    </div>
-    <div class="box-container">
-        <app-tabs-area [weatherData]="weatherData "></app-tabs-area>
     </div>
 </div>
