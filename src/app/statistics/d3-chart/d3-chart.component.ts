@@ -45,9 +45,15 @@ export class D3ChartComponent implements OnInit {
   private redrawGraph(){
     console.log("Redrawing");
     // this.svg.remove();
-    // // this.createSvg();
+    // d3.select("svg").remove();
+    this.svg.selectAll("*").remove();
+
+    // this.createSvg();
+    this.drawPlot(this.param);
+    // this.svg.selectAll("dots").data(this.climateAverages).exit.remove();
+    
     // console.log(this.svg);
-    // this.drawPlot(this.param);
+    
   }
   private drawGraph(){
     console.log("drawing");
@@ -73,6 +79,7 @@ export class D3ChartComponent implements OnInit {
       .attr("transform", "translate(0," + this.height + ")")
       .call(d3.axisBottom(x));
     
+		
     var y = d3.scaleLinear()
     .domain([d3.min(this.climateAverages, function(d) { return + d[param]; }), d3.max(this.climateAverages, function(d) { return + d[param]; })])
     .range([ this.height, 0]);
@@ -108,6 +115,6 @@ export class D3ChartComponent implements OnInit {
     .append("text")
     .text(d => d.Framework)
     .attr("x", d => x(d.name))
-    .attr("y", d => y(d[param]))
+    .attr("y", d => y(d[param]))    
   }
 }
