@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import * as d3 from 'd3';
 import { ClimateAverage } from 'src/app/models/climate-average.model';
 import { WeatherData } from 'src/app/models/weather-data.model';
@@ -20,40 +20,44 @@ export class D3ChartComponent implements OnInit {
   private height = 400 - (this.margin * 2);
   private x;
   private y;
-  @Input() id: string;
+  // @Input() id: string;
+  @ViewChild('FigureRef') FigureRef: ElementRef;
   constructor(public data: DataService) { }
 
 
   ngOnInit(): void {
-    // console.log(this.climateAverages);
+    console.log("id:");
+    // console.log(this.id);
     this.data.weatherData.subscribe((newWeatherData)=>{
       console.log("in D3, subscribed to new value");
       this.weatherData = newWeatherData;
       console.log(this.weatherData);
       this.climateAverages = this.weatherData.climateAverages;
-      console.log(this.climateAverages);
       console.log("svg:");
       console.log(this.svg);
-      if(this.svg == undefined) {
-        this.drawGraph();
-      } else {
-        this.redrawGraph();
-      }
+      console.log(this.param);
+      
     });
     
+  }
+  private ngAfterViewInit() {
+    console.log(this.FigureRef);
+    if(this.svg == undefined) {
+      this.drawGraph();
+    } else {
+      this.redrawGraph();
+    }
+
   }
   private redrawGraph(){
     console.log("Redrawing");
     // this.svg.remove();
     // d3.select("svg").remove();
     this.svg.selectAll("*").remove();
-
     // this.createSvg();
     this.drawPlot(this.param);
-    // this.svg.selectAll("dots").data(this.climateAverages).exit.remove();
-    
+    // this.svg.selectAll("dots").data(this.climateAverages).exit.remove();   
     // console.log(this.svg);
-    
   }
   private drawGraph(){
     console.log("drawing");
@@ -61,8 +65,10 @@ export class D3ChartComponent implements OnInit {
     this.drawPlot(this.param);  
   }
   private createSvg(): void {
-    this.svg = d3.select("#"+this.id)   
+    console.log(this.FigureRef);
+    this.svg = d3.select(this.FigureRef.nativeElement)   
     .append("svg")
+    // .attr("viewBox", `0 0 ${this.width + (this.margin * 2)} ${this.height + (this.margin * 2)}`)
     .attr("width", this.width + (this.margin * 2))
     .attr("height", this.height + (this.margin * 2))
     .append("g")
@@ -77,8 +83,7 @@ export class D3ChartComponent implements OnInit {
    
     this.svg.append("g")
       .attr("transform", "translate(0," + this.height + ")")
-      .call(d3.axisBottom(x));
-    
+      .call(d3.axisBottom(x));   
 		
     var y = d3.scaleLinear()
     .domain([d3.min(this.climateAverages, function(d) { return + d[param]; }), d3.max(this.climateAverages, function(d) { return + d[param]; })])

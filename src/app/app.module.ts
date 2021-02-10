@@ -18,7 +18,9 @@ import { StatisticsComponent } from './statistics/statistics.component';
 import { D3ChartComponent } from './statistics/d3-chart/d3-chart.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { AboutComponent } from './about/about.component';
-import { MainPanelComponent } from './main-panel/main-panel.component'
+import { MainPanelComponent } from './main-panel/main-panel.component';
+import { DynamicGraphsComponent } from './statistics/dynamic-graphs/dynamic-graphs.component';
+import { StaticGraphsComponent } from './statistics/static-graphs/static-graphs.component'
 // import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
@@ -38,7 +40,9 @@ import { MainPanelComponent } from './main-panel/main-panel.component'
     D3ChartComponent,
     NavigationComponent,
     AboutComponent,
-    MainPanelComponent
+    MainPanelComponent,
+    DynamicGraphsComponent,
+    StaticGraphsComponent
   ],
   imports: [
     BrowserModule,

@@ -1,32 +1,10 @@
 <app-navigation [weatherData]="weatherData"></app-navigation>
-<div *ngIf="weatherData != undefined">
-    <div>
-        <app-main-panel [weatherData]="weatherData"></app-main-panel>
+<div class="">
+    <div *ngIf="weatherData != undefined">
+        <div class="container-fluid">
+            <app-main-panel [weatherData]="weatherData"></app-main-panel>
+        </div>
+        <app-static-graphs [weatherData]="weatherData"></app-static-graphs>
+        <app-dynamic-graphs [weatherData]="weatherData"></app-dynamic-graphs>
     </div>
-    <div class="container-fluid">
-        <div class="figure-g">
-            <h2>Temperature Averages / Month</h2>
-            <div class="box-container">
-                <app-d3-chart id=id0 [weatherData]="weatherData" [param]="'avgTemp'"></app-d3-chart>
-            </div>
-        </div>
-        <div class="figure-g">
-            <h2>Average Fog Days / Month</h2>
-            <div class="box-container">
-                <app-d3-chart id=id1 [weatherData]="weatherData" [param]="'avgFogDays'"></app-d3-chart>
-            </div>
-        </div>
-        <div class="figure-g">
-            <h2>Average Rain Days / Month</h2>
-            <div class="box-container">
-                <app-d3-chart id=id2 [weatherData]="weatherData" [param]="'avgRainDays'"></app-d3-chart>
-            </div>
-        </div>
-    </div>
-    <!-- <div *ngFor="let key of mainGraphKeys"> 
-        <h2>{{ Titles[key] }}</h2>
-        <div class="box-container">
-            <app-d3-chart id="key" [climateAverages]="climateAverages" [param]="key"></app-d3-chart>
-        </div>
-    </div>  -->
 </div>

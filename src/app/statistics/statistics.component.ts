@@ -4,18 +4,6 @@ import { AppComponent } from '../app.component';
 import { ClimateAverage } from '../models/climate-average.model';
 import { WeatherData } from '../models/weather-data.model';
 
-export enum Titles{
-  avgTemp= "Average Temperature",
-  avgMaxTemp= "Average Max Temperature",
-  avgMinTemp= "Average Min Temperature",
-  absMinTemp= "Absolute Min Temperature",
-  absMaxTemp= "Absolute Max Temperature",
-  avgSnowDays= "Average Snowy Days",
-  avgThunderDays= "Average Thunder Days",
-  avgDryDays= "Average Dry Days",
-  avgFogDays= "Average Fog Days",
-  avgRainDays= "Average Rain Days",
-}
 
 @Component({
   selector: 'app-statistics',
@@ -25,11 +13,6 @@ export enum Titles{
 export class StatisticsComponent implements OnInit {
   @Input() weatherData: WeatherData;
   // climateAverages: Array <ClimateAverage>;
-  mainGraphKeys = ['avgTemp', 'avgMaxTemp', 'absMinTemp', 'avgRainDays', 'avgFogDays']
-  otherGraphKeys = ['avgMinTemp', 'absMaxTemp', 'avgDryDays', 'avgSnowDays', 'avgThunderDays', 'avgFogDays']
-  public get Titles(): typeof Titles {
-    return Titles; 
-  }
   
   
   constructor(public data: DataService, private appComponent: AppComponent) { 
