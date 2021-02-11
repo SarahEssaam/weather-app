@@ -10,6 +10,7 @@ import { WeatherData } from '../models/weather-data.model';
 })
 export class NavigationComponent implements OnInit {
   @Input() weatherData: WeatherData;
+  dataToggle: boolean = false;
   constructor(private router: Router, public data: DataService) { }
   
 
