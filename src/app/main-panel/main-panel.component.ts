@@ -21,6 +21,7 @@ export class MainPanelComponent implements OnInit {
       console.log(this.weatherData);
     });
   }
+  
   showCurrentLocation (){
     this.appComponent.initialize();
     this.data.weatherData.subscribe((newWeatherData) => {

@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import * as d3 from 'd3';
 import { ClimateAverage } from 'src/app/models/climate-average.model';
 import { WeatherData } from 'src/app/models/weather-data.model';
@@ -10,7 +10,7 @@ import { DataService } from 'src/app/services/data.service';
   templateUrl: './d3-chart.component.html',
   styleUrls: ['./d3-chart.component.css']
 })
-export class D3ChartComponent implements OnInit {
+export class D3ChartComponent implements OnInit{
   @Input() weatherData: WeatherData;
   climateAverages: Array<ClimateAverage>;
   @Input() param: string;
@@ -20,6 +20,7 @@ export class D3ChartComponent implements OnInit {
   private height = 400 - (this.margin * 2);
   private x;
   private y;
+  initialized: boolean = false;
   // @Input() id: string;
   @ViewChild('FigureRef') FigureRef: ElementRef;
   constructor(public data: DataService) { }
@@ -38,9 +39,16 @@ export class D3ChartComponent implements OnInit {
       console.log(this.param);
       
     });
-    
+    this.initialized = true;
   }
-  private ngAfterViewInit() {
+  ngOnChanges(changes: SimpleChanges){
+    if (this.initialized){
+      console.log("in ngOnchanges, wethrdata:");
+      console.log(this.weatherData);
+        this.redrawGraph(this.param);
+    }
+  }
+  ngAfterViewInit() {
     console.log(this.FigureRef);
     if(this.svg == undefined) {
       this.drawGraph();
@@ -123,4 +131,5 @@ export class D3ChartComponent implements OnInit {
     .attr("x", d => x(d.name))
     .attr("y", d => y(d[param]))    
   }
+  
 }

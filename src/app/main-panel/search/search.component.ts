@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef } from '@angular/core';
 import { AppComponent } from 'src/app/app.component';
 import { SearchService } from 'src/app/services/search.service';
 import { Location } from '../../models/location.model';
@@ -8,7 +8,7 @@ import { Location } from '../../models/location.model';
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.css']
 })
-export class SearchComponent implements OnInit {
+export class SearchComponent {
   locations: Array<Location>;
   searchInput: string='';
   currentLocation: Location;
@@ -30,7 +30,6 @@ export class SearchComponent implements OnInit {
   updateSearchField(event: Event, loc:Location){
     this.locations.length = 0;
     console.log((<HTMLLinkElement>event.target).innerHTML); 
-    // console.log(this.myElement.nativeElement.ViewChild('search-input')); 
     this.searchInput = (<HTMLLinkElement>event.target).innerHTML;
     this.currentLocation = loc;
   }
@@ -39,8 +38,7 @@ export class SearchComponent implements OnInit {
     this.searchInput = '';
     this.appComponent.setGlobalData(this.currentLocation);
   }
-  ngOnInit(): void {
-  }
+  
   getListPosition(){
     if (this.locations.length == 0){
       return 'relative';
