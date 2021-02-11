@@ -1,5 +1,4 @@
-import { CurrentWeather } from "./current-weather.model"
-import { WeatherData } from "./weather-data.model"
+import { HourlyWeather } from "./hourly-weather.model"
 
 export interface Weather {
     date: Date;
@@ -9,5 +8,5 @@ export interface Weather {
     mintempF: number;
     avgTempC: number;
     avgTempF: number;
-    hourlyWeather: Array<CurrentWeather>;
+    hourly: Array<HourlyWeather>;
 }

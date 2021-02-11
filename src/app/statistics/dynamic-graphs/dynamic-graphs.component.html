@@ -1,19 +1,18 @@
-<div class="row">
-    <ul class="list-group col-xs-3">
-        <li class="list-group-item">
-            <input class="form-check-input me-1" type="checkbox" value="" aria-label="..."> Cras justo odio
-        </li>
-        <li class="list-group-item">
-            <input class="form-check-input me-1" type="checkbox" value="" aria-label="..."> Dapibus ac facilisis in
-        </li>
-        <li class="list-group-item">
-            <input class="form-check-input me-1" type="checkbox" value="" aria-label="..."> Morbi leo risus
-        </li>
-        <li class="list-group-item">
-            <input class="form-check-input me-1" type="checkbox" value="" aria-label="..."> Porta ac consectetur ac
-        </li>
-        <li class="list-group-item">
-            <input class="form-check-input me-1" type="checkbox" value="" aria-label="..."> Vestibulum at eros
-        </li>
-    </ul>
+<!-- <div class="row"> -->
+
+<div class="centered-container">
+    <div class="row">
+        <div class="col-xs-4">
+            <ul class="list-group">
+                <li class="list-group-item" *ngFor="let key of allGraphKeys; let i = index;">
+                    <input class="form-check-input me-1" (click)=onSelectOption($event,key) [id]="key" type="radio" name="commonList" [value]="Titles[key]" [attr.checked]="key==activeChart && key==defaultKey? '' : null">
+                    <label [for]="key">{{ Titles[key] }} / Month</label>
+                </li>
+            </ul>
+        </div>
+        <div class="col-xs-8 box-container">
+            <h2>{{ Titles[activeChart] }}</h2>
+            <app-d3-chart [weatherData]="weatherData" [param]="activeChart"></app-d3-chart>
+        </div>
+    </div>
 </div>

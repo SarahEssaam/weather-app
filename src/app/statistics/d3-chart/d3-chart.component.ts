@@ -45,16 +45,17 @@ export class D3ChartComponent implements OnInit {
     if(this.svg == undefined) {
       this.drawGraph();
     } else {
-      this.redrawGraph();
+      this.redrawGraph(this.param);
     }
 
   }
-  private redrawGraph(){
+  redrawGraph(param:string){
     console.log("Redrawing");
     // this.svg.remove();
     // d3.select("svg").remove();
     this.svg.selectAll("*").remove();
     // this.createSvg();
+    this.param=param;
     this.drawPlot(this.param);
     // this.svg.selectAll("dots").data(this.climateAverages).exit.remove();   
     // console.log(this.svg);

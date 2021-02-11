@@ -8,3 +8,22 @@ h2 {
     margin-left: 20px;
     ;
 }
+
+.list-group {
+    margin-left: 10px;
+    max-height: 300px;
+    overflow-y: scroll;
+    margin-left: 10px;
+}
+
+.list-group .list-group-item {
+    padding-left: 50 px;
+}
+
+.list-group-item {
+    position: relative;
+    display: block;
+    padding: 1.5rem 1.5rem;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+}

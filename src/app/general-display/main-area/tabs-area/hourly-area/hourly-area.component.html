@@ -1,1 +1,31 @@
-<p>Not Supported</p>
+<div class="row">
+    <div class="container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Time</th>
+                    <th> </th>
+                    <th>Temperature</th>
+                    <th>Feels Like</th>
+                    <th>Wind Speed</th>
+                    <th>Humidity</th>
+                    <th>Visibility</th>
+                    <th>Cloud Cover</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let hourlyWeather of weatherData.weatherArr[0].hourly">
+                    <td>{{ weatherData.formatTime(hourlyWeather.time) }}</td>
+                    <td><img [src]="hourlyWeather.weatherIconUrl[0].value" [alt]="hourlyWeather.weatherDesc[0].value" style=""></td>
+                    <td>{{ hourlyWeather.tempC }} °C / {{ hourlyWeather.tempF }} F</td>
+                    <td>{{ hourlyWeather.FeelsLikeC }} °C / {{ hourlyWeather.FeelsLikeF }} F</td>
+                    <td>{{ hourlyWeather.windspeedMiles }} Miles / {{ hourlyWeather.windspeedKmph }} Km</td>
+                    <td>{{ hourlyWeather.humidity }}%</td>
+                    <td>{{ hourlyWeather.visibility }} Km</td>
+                    <td>{{ hourlyWeather.cloudcover }}%</td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+</div>

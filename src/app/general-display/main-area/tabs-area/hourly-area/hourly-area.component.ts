@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Weather } from 'src/app/models/weather.model';
+import { WeatherData } from 'src/app/models/weather-data.model';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-hourly-area',
@@ -7,12 +8,18 @@ import { Weather } from 'src/app/models/weather.model';
   styleUrls: ['./hourly-area.component.css']
 })
 export class HourlyAreaComponent implements OnInit {
-  @Input() weather: Weather;
+  @Input() weatherData: WeatherData;
 
-  constructor() { }
+  constructor(private data: DataService) { }
 
   ngOnInit(): void {
-    console.log(this.weather);
+    this.data.weatherData.subscribe((newWeatherData)=>{
+      console.log("in StaticGraphsComponent, subscribed to new value");
+      this.weatherData = newWeatherData;
+    });
+    console.log("In hourly tab");
+    console.log(this.weatherData);
+
   }
 
 }

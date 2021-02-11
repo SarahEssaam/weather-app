@@ -11,5 +11,5 @@
 </ul>
 
 <app-now-area [currentWeather]="weatherData.currentWeather" *ngIf="activeTab==Tab.Now"></app-now-area>
-<app-hourly-area [weather]="weatherData.weather" *ngIf="activeTab==Tab.Hourly"></app-hourly-area>
-<app-weekly-area [weather]="weatherData.weather" *ngIf="activeTab==Tab.Weekly"></app-weekly-area>
+<app-hourly-area [weather]="weatherData" *ngIf="activeTab==Tab.Hourly"></app-hourly-area>
+<app-weekly-area [weather]="weatherData" *ngIf="activeTab==Tab.Weekly"></app-weekly-area>

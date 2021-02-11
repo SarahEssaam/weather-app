@@ -29,6 +29,18 @@ export class WeatherData {
         // console.log(this.timeZone);
         return `${this.timeZone.localtime} (GMT+${this.timeZone.utcOffset})`;
     }
+    formatTime(time: string): string {
+        switch(time){
+            case '0':
+                return '00:00';
+            case '300':
+            case '600':
+            case '900':
+                return `${time.substring(0,1)}:${time.substring(1)}`;
+            default:
+                return `${time.substring(0,2)}:${time.substring(2)}`;
+        }
+    }
     getLocation() {
         if (this.query.includes("Lat")){
             let latitude, longitude: string;

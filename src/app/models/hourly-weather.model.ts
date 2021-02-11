@@ -3,4 +3,6 @@ import { CurrentWeather } from "./current-weather.model";
 
 export interface HourlyWeather extends CurrentWeather{
     time: Time;
+    tempC: number;
+    tempF: number;
 }
