@@ -6,18 +6,19 @@
 
 h2 {
     margin-left: 20px;
-    ;
+    text-align: ;
 }
 
-.list-group {
+ul.list-group {
     margin-left: 10px;
     max-height: 300px;
     overflow-y: scroll;
-    margin-left: 10px;
+    margin: 10px;
 }
 
 .list-group .list-group-item {
     padding-left: 50 px;
+    margin-left: 20px;
 }
 
 .list-group-item {
@@ -26,4 +27,8 @@ h2 {
     padding: 1.5rem 1.5rem;
     background-color: #fff;
     border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.col-xs-8 .box-container {
+    margin: 10px;
 }

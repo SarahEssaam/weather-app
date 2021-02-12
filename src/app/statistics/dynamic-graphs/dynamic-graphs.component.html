@@ -1,7 +1,7 @@
-<!-- <div class="row"> -->
-
-<div class="centered-container">
+<div class="container-fluid" style="margin-top:50px">
+    <h2>Choose Category to view monthy average statistics</h2>
     <div class="row">
+
         <div class="col-xs-4">
             <ul class="list-group">
                 <li class="list-group-item" *ngFor="let key of allGraphKeys; let i = index;">
@@ -10,9 +10,9 @@
                 </li>
             </ul>
         </div>
-        <div class="col-xs-8 box-container">
+        <div class="col-xs-8 box-container" style="margin-left: 10px;">
             <h2>{{ Titles[activeChart] }}</h2>
-            <app-d3-chart [data]="weatherData" [param]="activeChart"></app-d3-chart>
+            <app-d3-chart [weatherData]="weatherData" [param]="activeChart"></app-d3-chart>
         </div>
     </div>
 </div>
