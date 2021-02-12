@@ -1,3 +1,72 @@
-a:hover {
-    cursor: pointer;
-}
+    nav {
+        /* background: url(../img/blue-violet.jpg) no-repeat center center;
+    background-size: 100%;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    padding-right: 2em;
+    width: 70%; */
+    }
+    
+    .navbar-brand {
+        font-family: 'Erica One', cursive;
+        font-size: 3.5em;
+        color: rgb(8, 8, 100);
+        font-weight: normal;
+    }
+    
+    .nav-item a {
+        font-size: 150%;
+        font-weight: bold;
+        color: rgb(13, 13, 138);
+    }
+    
+    ul {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        /* margin-right: 5px; */
+        margin-left: 50%;
+        /* align-items: right; */
+        display: flex;
+    }
+    
+    @media screen and (max-width: 992px) {
+        ul {
+            margin-left: 0;
+        }
+        /* span.nav-container {
+        } */
+    }
+    
+    span.nav-container {
+        margin-right: auto;
+        white-space: nowrap;
+        align-items: stretch;
+        width: 100%;
+        display: flex;
+    }
+    
+    .nav-item {
+        flex: 1;
+        display: inline-block;
+        /* justify-content: flex-end; */
+        /* margin-left: 10px; */
+    }
+    
+    #navbarTogglerDemo03 .nav-item a {
+        /* font-weight: normal; */
+    }
+    
+    .navbar-light .navbar-nav .show>.nav-link,
+    .navbar-light .navbar-nav .active>.nav-link,
+    .navbar-light .navbar-nav .nav-link.show,
+    .navbar-light .navbar-nav .nav-link.active {
+        color: rgb(55, 55, 255);
+    }
+    
+    #navbarTogglerDemo03 .nav-item a:hover,
+    a.navbar-brand:hover {
+        cursor: pointer;
+        color: rgb(55, 118, 255);
+    }

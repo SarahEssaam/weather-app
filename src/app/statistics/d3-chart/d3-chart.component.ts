@@ -84,7 +84,7 @@ export class D3ChartComponent implements OnInit{
     .attr("transform", "translate(" + this.margin + "," + this.margin + ")");
   }
   
-  private drawPlot(param: string){
+   drawPlot(param: string){
     var x = d3.scalePoint()
     .domain(this.climateAverages.map((d)=>{
       return d.name;
