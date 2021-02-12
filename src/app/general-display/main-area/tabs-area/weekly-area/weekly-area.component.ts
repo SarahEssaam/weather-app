@@ -9,7 +9,7 @@ import { DataService } from 'src/app/services/data.service';
 })
 export class WeeklyAreaComponent implements OnInit {
   @Input() weatherData: WeatherData;
-  param: string = 'avge'
+  param = {x:'date', y:'avgTempC'};
   constructor(private data: DataService) { }
 
   ngOnInit(): void {
@@ -18,7 +18,7 @@ export class WeeklyAreaComponent implements OnInit {
       this.weatherData = newWeatherData;
       console.log(this.weatherData);
     });
-    
+    // this.param = {x:'data', y:'avgTempC'};
   }
 
 }

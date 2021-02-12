@@ -32,6 +32,7 @@ export class NavigationComponent implements OnInit {
     console.log(this.weatherData);
     // this.data.weatherData = this.weatherData;
     // this.data.weatherData.next(this.weatherData);
+    console.log(path);
     this.router.navigateByUrl(path);
     }
 }

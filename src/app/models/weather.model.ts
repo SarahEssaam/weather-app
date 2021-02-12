@@ -1,7 +1,7 @@
 import { HourlyWeather } from "./hourly-weather.model"
 
 export interface Weather {
-    date: Date;
+    date: string;
     maxtempC: number;
     mintempC: number;
     maxtempF: number;

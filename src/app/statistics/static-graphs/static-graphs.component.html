@@ -2,7 +2,7 @@
     <div class="figure-g" *ngFor="let key of mainGraphKeys">
         <h2>{{ Titles[key] }} / Month</h2>
         <div class="box-container">
-            <app-d3-chart [weatherData]="weatherData" [param]="key"></app-d3-chart>
+            <app-d3-chart [data]="weatherData" [param]="key"></app-d3-chart>
         </div>
     </div>
 </div>

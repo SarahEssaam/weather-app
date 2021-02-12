@@ -29,7 +29,9 @@ export class DynamicGraphsComponent implements OnInit {
   }
   onSelectOption(event:Event, key:string){
     this.activeChart = key;
-    this.d3ChartComp.drawPlot(key);
+    this.d3ChartComp.drawGraph();
   }
   
 }
+
+
