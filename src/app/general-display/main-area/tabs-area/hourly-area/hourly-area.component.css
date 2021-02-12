@@ -1,0 +1,43 @@
+.table thead th,
+.table tbody td:nth-child(1) {
+    color: rgb(8, 8, 100);
+    font-weight: bolder;
+}
+
+.table thead th,
+.table tbody td {
+    padding-right: 3 px;
+    padding: 3 px;
+}
+
+@media screen and (max-width: 992px) {
+    .table thead th,
+    .table tbody td {
+        font-size: 80%;
+    }
+}
+
+@media screen and (max-width: 780px) {
+    .table thead th:nth-child(2),
+    .table tbody td:nth-child(2) {
+        position: absolute;
+        top: -1000;
+        left: -1000;
+        opacity: 0;
+    }
+}
+
+@media screen and (max-width: 660px) {
+    .table thead th:nth-child(7),
+    .table tbody td:nth-child(7),
+    .table thead th:nth-child(8),
+    .table tbody td:nth-child(8) {
+        position: absolute;
+        top: -1000;
+        left: -1000;
+        opacity: 0;
+    }
+    /* .table {
+        overflow: scroll;
+    } */
+}

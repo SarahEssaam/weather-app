@@ -1,10 +1,9 @@
 <app-navigation [weatherData]="weatherData"></app-navigation>
-<div class="">
-    <div *ngIf="weatherData != undefined">
-        <div class="container-fluid">
-            <app-main-panel [weatherData]="weatherData"></app-main-panel>
-        </div>
-        <app-static-graphs [weatherData]="weatherData"></app-static-graphs>
-        <app-dynamic-graphs [weatherData]="weatherData"></app-dynamic-graphs>
+
+<div *ngIf="weatherData != undefined">
+    <div class="container-fluid">
+        <app-main-panel [weatherData]="weatherData"></app-main-panel>
     </div>
+    <app-static-graphs [weatherData]="weatherData"></app-static-graphs>
+    <app-dynamic-graphs [weatherData]="weatherData"></app-dynamic-graphs>
 </div>

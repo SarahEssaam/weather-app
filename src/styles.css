@@ -10,7 +10,8 @@ body {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    padding-top: 200px;
+    padding-top: 150px;
+    color: rgb(13, 13, 138);
 }
 
 h2 {
@@ -24,16 +25,14 @@ h2 {
 
 h3 {
     font-weight: 500;
-    font-size: larger;
+    font-size: large;
     color: #007BFF;
-}
-
-# .col-lg-4 {
-    width: 30%;
 }
 
 .box-container {
     background-color: whitesmoke;
+    background-color: white;
+    opacity: 0.95;
     font-size: larger;
     font-weight: 500;
     margin: 10px;
@@ -45,6 +44,7 @@ h3 {
 .box-container td {
     color: #04396d;
     color: darkblue;
+    color: rgb(13, 13, 138);
 }
 
 .btn {
